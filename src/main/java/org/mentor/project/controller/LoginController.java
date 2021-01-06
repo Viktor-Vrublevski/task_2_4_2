@@ -42,18 +42,21 @@ public class LoginController {
         model.addAttribute("user", user);
         return "registry";
     }
+
     @PostMapping(value = "/registration")
     public String createUser(@ModelAttribute("user") User user) {
         List<Role> roles = new ArrayList<>();
         user.setPassword(encoder.encode(user.getPassword()));
-        if (user.getUsername().equalsIgnoreCase("admin")) {
-            roles.add(roleService.getRole(1));
-            roles.add(roleService.getRole(2));
-            user.setRoles(roles);
-        } else {
+        if (user.getRole().equals("user")) {
             roles.add(roleService.getRole(2));
             user.setRoles(roles);
         }
+        if (user.getRole().equals("admin")) {
+            roles.add(roleService.getRole(1));
+            roles.add(roleService.getRole(2));
+            user.setRoles(roles);
+        }
+
         userService.save(user);
         return "redirect:/login";
     }

@@ -36,6 +36,9 @@ public class User implements UserDetails {
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
 
+    @Transient
+    private String role = "user";
+
     public User() {
     }
 
@@ -43,6 +46,14 @@ public class User implements UserDetails {
         this.name = name;
         this.surname = surname;
         this.age = age;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Long getId() {
