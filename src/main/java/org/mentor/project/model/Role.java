@@ -2,9 +2,8 @@ package org.mentor.project.model;
 
 
 import org.springframework.security.core.GrantedAuthority;
-
 import javax.persistence.*;
-import java.util.List;
+
 
 @SuppressWarnings("All")
 @Entity
