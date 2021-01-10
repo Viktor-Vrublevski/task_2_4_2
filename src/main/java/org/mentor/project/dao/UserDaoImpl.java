@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao{
     public void save(User user) {
         EntityManager manager = factory.createEntityManager();
         manager.getTransaction().begin();
-        manager.persist(user);
+        manager.persist(manager.contains(user) ? user : manager.merge(user));
         manager.getTransaction().commit();
     }
 
@@ -60,19 +60,6 @@ public class UserDaoImpl implements UserDao{
         return user;
     }
 
-
-    @Override
-    public void update(User user) {
-        EntityManager manager = factory.createEntityManager();
-        manager.getTransaction().begin();
-        Query query = manager.createQuery("UPDATE User SET name =?1, surname= ?2, age= ?3 WHERE id= ?4");
-        query.setParameter(1, user.getName());
-        query.setParameter(2, user.getSurname());
-        query.setParameter(3, user.getAge());
-        query.setParameter(4,user.getId());
-        query.executeUpdate();
-        manager.getTransaction().commit();
-    }
 
     @Override
     public void delete(Long id) {

@@ -86,7 +86,7 @@
                 <p><input class="input" type="text" required="required" placeholder="last_name" th:field="${user.surname}"></p></label>
             </div>
             <div><label>Age :
-                <p><input class="input" type="number" required="required" min="0" placeholder="age" th:field="${user.age}"></p></label>
+                <p><input class="input" type="number" required="required" min="0" max="127" placeholder="age" th:field="${user.age}"></p></label>
             </div><br/>
             <label>user: </label><label>
             <input  type="radio" name="role" value="user" th:field="*{role}"/>

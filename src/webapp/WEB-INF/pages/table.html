@@ -21,12 +21,12 @@
             </tr>
             <tr th:each="user : ${users}">
                 <td th:text="${user.getId()}">...</td>
-                <td th:text="${user.getName()}">...</td>
-                <td th:text="${user.getSurname()}">...</td>
-                <td th:text="${user.getAge()}">...</td>
-                <td><a th:href="@{/admin/update/{id}(id=${user.getId()})}">
+                <td th:text="${user.name}">...</td>
+                <td th:text="${user.surname}">...</td>
+                <td th:text="${user.age}">...</td>
+                <td><a th:href="@{/admin/update/{id}(id=${user.id})}">
                     update</a></td>
-                <td><a th:href="@{/admin/delete/{id}(id=${user.getId()})}">
+                <td><a th:href="@{/admin/delete/{id}(id=${user.id})}">
                     delete</a></td>
             </tr>
         </table>

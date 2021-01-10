@@ -36,8 +36,16 @@
             <input type="text"  th:field="${user.surname}">
         </label></div>
         <div class="field"><label>Age:
-            <input  type="number"  min="0" th:field="${user.age}">
+            <input  type="number"  min="0" max="127" th:field="${user.age}">
         </label></div>
+        <div class="field">
+            <label>Username:
+                <input  type="text" placeholder="name"  th:field="${user.username}">
+            </label></div>
+        <div class="field">
+            <label>Password:
+                <input  type="text" placeholder="name"  th:field="${user.password}">
+            </label></div>
         <div class="field">
             <input type="submit" value="update">
         </div>
